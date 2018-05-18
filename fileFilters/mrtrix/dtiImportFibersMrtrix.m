@@ -54,7 +54,8 @@ try
     % be two possible keywords for this field.
     numIndx = strmatch('num_tracks:',header);
     if(isempty(numIndx))
-        numIndx = strmatch('count:',header); 
+        numIndx = strmatch('count:',header);
+        numIndx = max(numIndx)  % this will allow for importing of a cat_tracks combined .tck file
         n = str2double(header{numIndx}(7:end));
     else
         n = str2double(header{numIndx}(12:end));
